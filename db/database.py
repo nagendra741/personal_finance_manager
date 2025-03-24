@@ -26,14 +26,14 @@ def create_tables():
                         user_id INTEGER,
                         category TEXT NOT NULL,
                         limit_amount REAL NOT NULL,
-                        UNIQUE(user_id, category),  -- ✅ Ensures uniqueness
+                        UNIQUE(user_id, category),  --  Ensures uniqueness
                         FOREIGN KEY (user_id) REFERENCES users(id))''')
 
     cursor.execute("UPDATE transactions SET amount = CAST(amount AS REAL) WHERE type IN ('income', 'expense')")
     conn.commit()
 
     conn.close()
-    print("✅ Database and tables created successfully!")
+    print("Database and tables created successfully!")
 
 if __name__ == "__main__":
     create_tables()
