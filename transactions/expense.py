@@ -10,29 +10,29 @@ def add_expense(username, amount, category):
     user = cursor.fetchone()
 
     if not user:
-        print("❌ User not found!")
+        print("User not found!")
         conn.close()
         return
 
     user_id = user[0]
     date = datetime.today().strftime('%Y-%m-%d')
 
-    # ✅ Ensure amount is stored as a float
+    # Ensure amount is stored as a float
     try:
         amount = float(amount)  # Convert amount to float before storing
     except ValueError:
-        print("❌ Invalid amount entered!")
+        print(" Invalid amount entered!")
         conn.close()
         return
 
-    # ✅ Insert expense in the correct column order
+    # Insert expense in the correct column order
     cursor.execute("INSERT INTO transactions (user_id, type, category, amount, date) VALUES (?, 'expense', ?, ?, ?)",
                    (user_id, category, amount, date))
 
     conn.commit()
     conn.close()
 
-    print("✅ Expense added successfully!")
+    print("Expense added successfully!")
 
 
 
@@ -45,7 +45,7 @@ def view_expense(username):
     user = cursor.fetchone()
 
     if not user:
-        print("❌ User not found!")
+        print(" User not found!")
         return
 
     user_id = user[0]  # Extract user_id
