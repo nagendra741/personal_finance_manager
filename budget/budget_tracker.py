@@ -9,7 +9,7 @@ def set_budget(username, category, limit_amount):
     user = cursor.fetchone()
 
     if not user:
-        print("❌ User not found!")
+        print(" User not found!")
         conn.close()
         return
 
@@ -25,7 +25,7 @@ def set_budget(username, category, limit_amount):
 
     conn.commit()
     conn.close()
-    print(f"✅ Budget set for '{category}' at ₹{limit_amount}!")
+    print(f" Budget set for '{category}' at ₹{limit_amount}!")
 
 def check_budget(username):
     conn = sqlite3.connect("finance.db")
@@ -36,7 +36,7 @@ def check_budget(username):
     user = cursor.fetchone()
 
     if not user:
-        print("❌ User not found!")
+        print(" User not found!")
         conn.close()
         return
 
@@ -58,10 +58,10 @@ def check_budget(username):
     conn.close()
 
     if not budgets:
-        print("⚠️ No budget set!")
+        print(" No budget set!")
         return
 
-    print("\n📊 **Budget Summary:**")
+    print("\n **Budget Summary:**")
     for category, limit, spent in budgets:
-        status = "✅ Within budget" if spent <= limit else "⚠️ Budget exceeded!"
-        print(f"📌 {category}: Spent ₹{spent} / ₹{limit} - {status}")
+        status = " Within budget" if spent <= limit else " Budget exceeded!"
+        print(f" {category}: Spent ₹{spent} / ₹{limit} - {status}")
