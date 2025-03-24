@@ -9,7 +9,7 @@ def add_income(username, amount, category):
     user = cursor.fetchone()
 
     if not user:
-        print("❌ User not found!")
+        print(" User not found!")
         return
 
     user_id = user[0]  # Extract user_id
@@ -20,7 +20,7 @@ def add_income(username, amount, category):
 
     conn.commit()
     conn.close()
-    print("✅ Income added successfully!")
+    print(" Income added successfully!")
 
 def view_income(username):
     conn = sqlite3.connect("finance.db")
@@ -31,7 +31,7 @@ def view_income(username):
     user = cursor.fetchone()
     
     if not user:
-        print("❌ User not found!")
+        print(" User not found!")
         return
 
     user_id = user[0]  # Extract user_id
@@ -43,8 +43,8 @@ def view_income(username):
     conn.close()
 
     if income_records:
-        print("\n💰 Income Transactions:")
+        print("\n Income Transactions:")
         for amount, category, date in income_records:
-            print(f"📅 {date} | {category}: ₹{amount}")
+            print(f" {date} | {category}: ₹{amount}")
     else:
-        print("⚠️ No income records found!")
+        print(" No income records found!")
