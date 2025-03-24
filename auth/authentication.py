@@ -11,9 +11,9 @@ def register_user(username, password):
     try:
         cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hash_password(password)))
         conn.commit()
-        print("✅ Registration successful!")
+        print("Registration successful!")
     except sqlite3.IntegrityError:
-        print("❌ Username already exists!")
+        print("Username already exists!")
     finally:
         conn.close()
 
@@ -26,8 +26,8 @@ def login_user(username, password):
     conn.close()
 
     if record and record[0] == hash_password(password):
-        print("✅ Login successful!")
+        print("Login successful!")
         return True
     else:
-        print("❌ Invalid username or password!")
+        print("Invalid username or password!")
         return False
