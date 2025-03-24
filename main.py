@@ -8,7 +8,7 @@ from backup.backup_restore import backup_database, restore_database
 
 def user_dashboard(username):
     while True:
-        print("\n💰 Welcome to Personal Finance Manager!")
+        print("\n Welcome to Personal Finance Manager!")
         print("1. Add Income")
         print("2. Add Expense")
         print("3. View Income")
@@ -47,10 +47,10 @@ def user_dashboard(username):
         elif choice == "9":
             restore_database()
         elif choice == "10":
-            print("✅ Logged out successfully!")
+            print(" Logged out successfully!")
             break
         else:
-            print("❌ Invalid option! Try again.")
+            print(" Invalid option! Try again.")
 
 def main():
     while True:
@@ -69,10 +69,10 @@ def main():
             if login_user(username, password):
                 user_dashboard(username)  # Show the full dashboard after login
         elif choice == "3":
-            print("Goodbye! 👋")
+            print("Goodbye!")
             break
         else:
-            print("❌ Invalid option! Try again.")
+            print(" Invalid option! Try again.")
 
 if __name__ == "__main__":
     main()
