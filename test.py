@@ -12,7 +12,7 @@ def test_backup_restore():
     # Insert test data
     cursor.execute("INSERT INTO transactions (user_id, type, category, amount, date) VALUES (1, 'income', 'Test', 5000, '2025-03-10')")
     conn.commit()
-    print("✅ Test data added!")
+    print(" Test data added!")
 
     # Backup database
     backup_database()
@@ -24,7 +24,7 @@ def test_backup_restore():
     # Delete test data
     cursor.execute("DELETE FROM transactions WHERE category='Test'")
     conn.commit()
-    print("❌ Test data deleted from original DB!")
+    print(" Test data deleted from original DB!")
 
     # Count transactions after deletion
     cursor.execute("SELECT COUNT(*) FROM transactions")
@@ -39,12 +39,12 @@ def test_backup_restore():
 
     conn.close()
 
-    print(f"\n📊 Transactions before restore: {before_backup} | After restore: {after_restore}")
+    print(f"\n Transactions before restore: {before_backup} | After restore: {after_restore}")
 
     if before_backup == after_restore:
-        print("✅ Restore successful! Data integrity maintained.")
+        print(" Restore successful! Data integrity maintained.")
     else:
-        print("⚠️ Warning: Transaction count mismatch! Restore may not be complete.")
+        print(" Warning: Transaction count mismatch! Restore may not be complete.")
 
 # Run test
 test_backup_restore()
