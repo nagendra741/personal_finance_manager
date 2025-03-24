@@ -9,7 +9,7 @@ def generate_report(username, period="monthly"):
     user = cursor.fetchone()
 
     if not user:
-        print("❌ User not found!")
+        print("User not found!")
         return
 
     user_id = user[0]  # Extract user_id
@@ -57,9 +57,9 @@ def generate_report(username, period="monthly"):
     savings = income - expenses
 
     # Print Report
-    print("\n📊 Financial Report:")
-    print(f"💰 Income: ₹{income}")
-    print(f"🛒 Expenses: ₹{expenses}")
-    print(f"💾 Savings: ₹{savings}")
+    print("\n Financial Report:")
+    print(f" Income: ₹{income}")
+    print(f" Expenses: ₹{expenses}")
+    print(f" Savings: ₹{savings}")
 
     return {"Income": income, "Expenses": expenses, "Savings": savings}
